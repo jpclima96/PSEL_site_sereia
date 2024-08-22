@@ -2359,6 +2359,24 @@
         apareceuem: new Date().getTime(),
       });
     }, 5000);
+
+    // Implementação do dataLayer do formulario
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+    
+    window.dataLayer = window.dataLayer || [];
+    
+    window.dataLayer.push({
+      'event': 'form_submit',
+      'form_name': 'contactForm',
+      'user_name': document.getElementById('name').value,
+      'user_email': document.getElementById('email').value,
+      'user_phone': document.getElementById('phone').value,
+      'user_address': document.getElementById('address').value,
+      'user_message': document.getElementById('message').value
+    });
+    
+   
+  });
   </script>
 </body>
 
