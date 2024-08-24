@@ -2362,20 +2362,33 @@
 
     // Implementação do dataLayer do formulario
     document.getElementById('contactForm').addEventListener('submit', function(event) {
-    
+
+      event.preventDefault();
+  
+  var name = document.getElementById('name').value;
+  var email = document.getElementById('email').value;
+  var phone = document.getElementById('phone').value;
+  var address = document.getElementById('address').value;
+  var message = document.getElementById('message').value;
+  
+  if (name && email && phone && address && message) {
     window.dataLayer = window.dataLayer || [];
     
     window.dataLayer.push({
       'event': 'form_submit',
-      'user_name': document.getElementById('name').value,
-      'user_email': document.getElementById('email').value,
-      'user_phone': document.getElementById('phone').value,
-      'user_address': document.getElementById('address').value,
-      'user_message': document.getElementById('message').value
+      'user_name': name,
+      'user_email': email,
+      'user_phone': phone,
+      'user_address': address,
+      'user_message': message
     });
-    
-   
-  });
+
+    document.getElementById('contactForm').submit();
+  } else {
+    alert("Por favor, preencha todos os campos obrigatórios.");
+  }
+});
+ 
   </script>
 </body>
 
