@@ -960,7 +960,7 @@
       <div class="intro-text">
         <div class="intro-lead-in">Desenvolvimento de plataformas web</div>
         <div class="intro-heading">Com qualidade</div>
-        <a href="#contact" class="page-scroll btn btn-xl">Faça um orçamento</a>
+        <a href="#contact" class="cta-button">Faça um orçamento</a>
       </div>
     </div>
   </header>
@@ -2388,6 +2388,16 @@
     alert("Por favor, preencha todos os campos obrigatórios.");
   }
 });
+
+// Implementar datalayer do botão de faça um orçamento
+document.querySelector('.cta-button').addEventListener('click', function() {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+        'event': 'button_click',
+        'button_text': 'Faça um orçamento'
+    });
+});
+
  
   </script>
 </body>
